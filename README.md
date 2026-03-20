@@ -33,7 +33,7 @@ FeedReady solves this by preparing your images **before** upload. Think of it as
 
 ```
 Your image (with embedded metadata)
-  → Load into browser's <img> element
+  → Scan first 512KB for known metadata signatures
   → Redraw pixel-by-pixel onto a blank HTML5 <canvas>
   → Export canvas as a fresh file
   → Download to your device as yourimage_feedready.jpg
@@ -41,13 +41,15 @@ Your image (with embedded metadata)
 Output: pixel-identical image · zero metadata
 ```
 
-**Step 1** — Click **"Get image post-ready"** in the green FeedReady bar above your LinkedIn composer
+**Step 1** — Open LinkedIn. A small **✦ FeedReady** card appears fixed to the bottom-right corner of the page
 
-**Step 2** — Pick your image — FeedReady processes it entirely in your browser and downloads a clean copy
+**Step 2** — Click **"Get image post-ready"**, pick your image — FeedReady scans and cleans it entirely in your browser
 
-**Step 3** — Upload the `_feedready` file to LinkedIn and post as normal
+**Step 3** — Any detected metadata (C2PA, EXIF, XMP, AI tool tags) is shown as amber tags in the card so you know exactly what was removed
 
-That's it.
+**Step 4** — The clean `_feedready` file downloads automatically — upload it to LinkedIn and post as normal
+
+The card can be minimised to a small pill anytime and restored with one click.
 
 ---
 
