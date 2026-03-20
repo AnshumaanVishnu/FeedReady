@@ -6,38 +6,59 @@
  * GitHub : https://github.com/AnshumaanVishnu/FeedReady
  */
 
-.fr-widget {
-  width: 100%;
-  margin-bottom: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-}
+/* ── Fixed card — bottom right ────────────────────────────────── */
 
-.fr-inner {
-  background: #f0faf5;
+.fr-card {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 2147483647;
+  width: 236px;
+  background: #fff;
   border: 1.5px solid #057642;
-  border-radius: 10px;
-  padding: 10px 14px 9px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.13);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+  animation: fr-pop 0.2s ease;
 }
 
-.fr-top {
+.fr-card-header {
+  background: #057642;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.fr-brand {
+.fr-card-brand {
   font-size: 13px;
   font-weight: 700;
-  color: #057642;
+  color: #fff;
   letter-spacing: -0.1px;
-  flex-shrink: 0;
+}
+
+.fr-card-toggle {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.fr-card-toggle:hover { color: #fff; }
+
+.fr-card-body {
+  padding: 10px 12px 9px;
 }
 
 .fr-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  padding: 7px 16px;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 14px;
   background: #057642;
   color: #fff;
   border-radius: 20px;
@@ -48,6 +69,8 @@
   transition: background 0.15s;
   user-select: none;
   line-height: 1.4;
+  margin-bottom: 7px;
+  box-sizing: border-box;
 }
 .fr-btn:hover  { background: #045e34; }
 .fr-btn.fr-loading {
@@ -56,23 +79,85 @@
   pointer-events: none;
 }
 
-.fr-file-input {
-  display: none;
-}
+.fr-file-input { display: none; }
 
 .fr-status {
-  font-size: 12px;
+  font-size: 11px;
   color: #057642;
-  line-height: 1.4;
-  margin-top: 5px;
-  min-height: 0;
+  line-height: 1.45;
+  margin-bottom: 5px;
+  word-break: break-word;
 }
 
 .fr-disclaimer {
-  margin-top: 8px;
-  font-size: 10.5px;
-  color: #888;
-  line-height: 1.55;
-  border-top: 1px solid #d4ead9;
+  font-size: 10px;
+  color: #b0b0b0;
+  line-height: 1.5;
+  border-top: 1px solid #f0f0f0;
   padding-top: 7px;
 }
+
+/* ── Detected metadata tags ────────────────────────────────────── */
+
+.fr-detected {
+  margin-bottom: 6px;
+}
+
+.fr-detected-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #b45309;
+  margin-bottom: 5px;
+}
+
+.fr-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.fr-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ── Minimised pill ────────────────────────────────────────────── */
+
+.fr-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 2147483647;
+  background: #057642;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 14px rgba(5,118,66,0.32);
+  transition: background 0.15s;
+  animation: fr-pop 0.2s ease;
+}
+.fr-pill:hover { background: #045e34; }
+.fr-pill.fr-show { display: inline-flex; }
+
+/* ── Animations ────────────────────────────────────────────────── */
+
+@keyframes fr-pop {
+  from { opacity: 0; transform: scale(0.92) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+@keyframes fr-spin { to { transform: rotate(360deg); } }
+.fr-spinner { display: inline-block; animation: fr-spin 0.65s linear infinite; }
