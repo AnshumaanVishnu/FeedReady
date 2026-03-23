@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FeedReady",
   "short_name": "FeedReady",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean your image, not your creativity. Optimises images for LinkedIn by removing compatibility metadata before you post.",
   "permissions": ["storage"],
   "host_permissions": [
