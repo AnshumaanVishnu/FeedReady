@@ -248,6 +248,11 @@
     if (!document.body) return false;
 
     const { card, pill } = buildCard();
+
+    // Start minimised — pill visible, card hidden
+    card.style.display = 'none';
+    pill.classList.add('fr-show');
+
     document.body.appendChild(card);
     document.body.appendChild(pill);
     return true;
